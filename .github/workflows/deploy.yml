@@ -44,16 +44,6 @@ jobs: # 构建的任务，一个工作流有多个构建任务，
     # Remote port
       REMOTE_PORT: # optional, default is 22
     # Source directory, path relative to `$GITHUB_WORKSPACE` root, eg: `dist/`
-      SOURCE: # optional, default is 
+      SOURCE: `/dist`
     # Target directory
-      TARGET: # optional, default is 
-    # Arguments to pass to rsync
-      ARGS: # optional, default is -rlgoDzvc -i
-    # An array of ssh arguments, they must be prefixed with -o and separated by a comma, for example: -o SomeArgument=no, -o SomeOtherArgument=5 
-      SSH_CMD_ARGS: # optional, default is -o StrictHostKeyChecking=no
-    # paths to exclude separated by `,`, ie: `/dist/, /node_modules/`
-      EXCLUDE: # optional, default is 
-    # Script to run on host machine before rsync
-      SCRIPT_BEFORE: # optional, default is 
-    # Script to run on host machine after rsync
-      SCRIPT_AFTER: # optional, default is 
+      TARGET: `root`
