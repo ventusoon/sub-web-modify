@@ -997,12 +997,12 @@ export default {
       }
     },
     tanchuang() {
-      this.$alert(`<div style="color: #8400ff;">
+      this.$alert(
+        `<div style="color: #84ffff;font-weight: bold;font-size: 30px;text-align:center;">
 
 <p>风至万始苏</p>
 
-
-</div>`, '信息面板', {
+</div>`, '欢迎来到', {
         confirmButtonText: '确定',
         dangerouslyUseHTMLString: true,
         customClass: 'msgbox'
@@ -1027,7 +1027,7 @@ export default {
       window.open(downld);
     },
     gotoBasicVideo() {
-      this.$alert("别忘了关注友善的肥羊哦！", {
+      this.$alert("别忘了关注Ventus哦！", {
         type: "warning",
         confirmButtonText: '确定',
         customClass: 'msgbox',
@@ -1038,7 +1038,7 @@ export default {
           });
     },
     gotoAdvancedVideo() {
-      this.$alert("别忘了关注友善的肥羊哦！", {
+      this.$alert("别忘了关注Ventus哦！", {
         type: "warning",
         confirmButtonText: '确定',
         customClass: 'msgbox',
