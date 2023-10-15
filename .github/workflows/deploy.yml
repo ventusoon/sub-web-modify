@@ -30,12 +30,13 @@ jobs: # 构建的任务，一个工作流有多个构建任务，
         uses: easingthemes/ssh-deploy@v4.1.10
         with:
       # Private key part of an SSH key pair
-          SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-avz --delete"
       # Remote host
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
       # Remote user
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: '22 -o PubkeyAcceptedKeyTypes=+ssh-rsa'
       # Source directory, path relative to `$GITHUB_WORKSPACE` root, eg: `dist/`
           SOURCE: "/dist"
       # Target directory
