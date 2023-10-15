@@ -15,7 +15,7 @@ jobs: # 构建的任务，一个工作流有多个构建任务，
         uses: actions/checkout@v4
       # 步骤2 给当前服务器安装node
       - name: use node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.8.1
         with:
           node-version: 18
           cache: "yarn"
@@ -27,7 +27,7 @@ jobs: # 构建的任务，一个工作流有多个构建任务，
         run: yarn build
       # 步骤5 部署项目
       - name: ssh deploy
-        uses: easingthemes/ssh-deploy@v4
+        uses: easingthemes/ssh-deploy@v4.1.10
         with:
       # Private key part of an SSH key pair
           SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
