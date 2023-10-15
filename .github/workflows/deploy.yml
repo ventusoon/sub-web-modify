@@ -31,6 +31,7 @@ jobs: # 构建的任务，一个工作流有多个构建任务，
         with:
       # Private key part of an SSH key pair
           SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
+          ARGS: "-avz --delete"
       # Remote host
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
       # Remote user
