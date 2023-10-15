@@ -38,4 +38,4 @@ jobs: # 构建的任务，一个工作流有多个构建任务，
       # Source directory, path relative to `$GITHUB_WORKSPACE` root, eg: `dist/`
           SOURCE: "/dist"
       # Target directory
-          TARGET: "root"
+          TARGET: "/root"
