@@ -1,49 +1,41 @@
 # 当前工作流的名称
 name: sub-web CI
-# ci触发的条件
 on:
-  push: # 什么请求触发
-    branches: 
-    - master： # 作用在哪些分支上
+  push:
+    branches:
+      - master:
 
 jobs: # 构建的任务，一个工作流有多个构建任务，
   build-and-deploy:
     runs-on: ubuntu-latest # 在什么服务器上面执行这些任务，这里使用最新版本的ubuntu
     
     steps: # 构建任务的步骤，一个任务可分为多个步骤
-    
-    # 步骤1 拉取仓库代码
-    - name: Checkout # 步骤名称
-      uses: actions/checkout@v2 
-      
-    # 步骤2 给当前服务器安装node
-    - name: use node
-      uses: actions/setup-node@v2
+      # 切换分支
+      - name: Checkout
+        uses: actions/checkout@4.1.0
+      # 步骤2 给当前服务器安装node
+      - name: use node
+        uses: actions/setup-node@v3.8.1
         with:
-          node-version: 16 # node版本
+          node-version: 18
           cache: "yarn"
-          
-    # 步骤3 下载项目依赖    
-    - name: install
-      run: yarn install
-      
-    # 步骤4 打包node项目
-    - name: build
-      run: yarn build # 此处是你node项目的构建脚本
-      
-    # 步骤5 部署项目
-    - name: ssh deploy
-      uses: easingthemes/ssh-deploy@v4.1.10
-      with:
-    # Private key part of an SSH key pair
-      SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
-    # Remote host
-      REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-    # Remote user
-      REMOTE_USER: ${{ secrets.REMOTE_USER }}
-    # Remote port
-      REMOTE_PORT: # optional, default is 22
-    # Source directory, path relative to `$GITHUB_WORKSPACE` root, eg: `dist/`
-      SOURCE: `/dist`
-    # Target directory
-      TARGET: `root`
+      # 步骤3 下载项目依赖    
+      - name: install
+        run: yarn install
+      # 步骤4 打包node项目
+      - name: build
+        run: yarn build
+      # 步骤5 部署项目
+      - name: ssh deploy
+        uses: easingthemes/ssh-deploy@v4.1.10
+        with:
+      # Private key part of an SSH key pair
+        SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
+      # Remote host
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+      # Remote user
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+      # Source directory, path relative to `$GITHUB_WORKSPACE` root, eg: `dist/`
+        SOURCE: `/dist`
+      # Target directory
+        TARGET: `root`
