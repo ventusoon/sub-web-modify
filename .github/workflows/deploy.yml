@@ -37,5 +37,7 @@ jobs: # 构建的任务，一个工作流有多个构建任务，
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
       # Source directory, path relative to `$GITHUB_WORKSPACE` root, eg: `dist/`
           SOURCE: "/dist/"
+      # Script to run on host machine before rsync
+          SCRIPT_BEFORE: "mkdir -p /data/docker_data/npm/data/sub.ven2s.cn"
       # Target directory
           TARGET: "/data/docker_data/npm/data/sub.ven2s.cn/"
