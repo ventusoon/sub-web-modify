@@ -28,7 +28,7 @@ jobs: # 构建的任务，一个工作流有多个构建任务，
       # 步骤5 部署项目到服务器
       - name: ssh deploy
         uses: easingthemes/ssh-deploy@v4.1.10
-        env:
+        with:
       # Private key part of an SSH key pair
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       # Remote host
