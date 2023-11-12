@@ -243,11 +243,18 @@
               </el-form-item>
               <el-form-item label-width="0px" style="text-align: center">
                 <el-button
-                    style="width: 250px;"
+                style="width: 120px;"
+                    type="success"
+                    icon="el-icon-refresh"
+                    @click="gotoCts"
+                >sing-box转换
+                </el-button>
+                <el-button
+                    style="width: 120px;"
                     type="success"
                     icon="el-icon-video-play"
                     @click="centerDialogVisible = true"
-                >保姆级视频教程
+                >视频教程
                 </el-button>
               </el-form-item>
             </el-form>
